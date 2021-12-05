@@ -1,0 +1,11 @@
+from scipy.optimize import fsolve, broyden2
+import math
+
+def equations(p):
+    x, y = p
+    # Запись системы уравнения
+    return ((x**2)-(y**2)+3*x*(y**3)-2*(x**2)*(y**2)+2*x-3*y-5, 3*(y**3)-2*x**2+2*x**3*y-5*x**2*y**2+5)
+
+# Численное решение системы уравнений
+(x, y), info, ier, mesg =  fsolve(equations, (25, 25), full_output=True)
+print (x, y, ier)
